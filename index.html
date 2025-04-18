@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>NotePad</title>
+</head>
+<body>
+    <body class="bg-light p-4">
+        <div class="container">
+            <h1 class="text-center mb-4">NotePad Monica</h1>
+    
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form id="noteForm">
+                        <div class="mb-3">
+                            <input type="text" id="noteTitle" class="form-control" placeholder="Título de la nota" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea id="noteDescription" class="form-control" rows="3" placeholder="Descripción de la nota" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <select id="noteCategory" class="form-select" required>
+                                <option value="" disabled selected>Selecciona una categoría</option>
+                                <option value="Trabajo">Trabajo</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Personal">Estudios</option>
+                                <option value="Urgente">Urgente</option>
+                            </select>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Agregar Nota</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        <!-- Botones de filtro -->
+        <div class="d-flex justify-content-center gap-2 my-3" id="categoryButtons" style="display: none;">
+            <button class="btn btn-outline-primary" data-category="Todas">Todas</button>
+            <button class="btn btn-outline-secondary" data-category="Trabajo">Trabajo</button>
+            <button class="btn btn-outline-info" data-category="Personal">Personal</button>
+            <button class="btn btn-outline-warning" data-category="Estudio">Estudio</button>
+            <button class="btn btn-outline-danger" data-category="Urgente">Urgente</button>
+        </div>
+        
+      <div class="text-center mb-4">
+            <button id="clearNotes" class="btn btn-outline-danger me-2" style="display: none;">🗑 Borrar todas</button>
+            <button id="exportNotes" class="btn btn-outline-success" style="display: none;">📤 Exportar notas</button>
+        </div>
+   
+               
+        <!-- Contenedor de Notas -->
+        <div class="mt-4" id="notesContainer" style="display: none;">
+
+        <!-- Tabla de Notas (inicialmente oculta) -->
+            <div class="table-responsive mt-4" id="notesTableWrapper" style="display: none;">
+                <table class="table table-striped table-bordered" id="notesTable">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Título</th>
+                            <th>Resumen</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+
+        </div>
+        
+
+        <!-- Contenedor de paginación -->
+        <div id="pagination" class="text-center mt-3"></div>
+
+    
+        
+        <script src="notepad.js"></script>
+    </body>
+
+</html>
